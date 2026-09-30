@@ -52,12 +52,13 @@ arr = [10, 20, 30, 40, 50]
 
 # Insert at end → O(1)
 arr.append(60)
-print(arr)              # [10, 20, 30, 40, 50, 60]
+print("Print append:", arr)              # [10, 20, 30, 40, 50, 60]
 
 # Insert at middle → O(n)
 arr.insert(2, 99)       # index 2, value 99
-print(arr)              # [10, 20, 99, 30, 40, 50, 60]
+print("Print append:", arr)              # [10, 20, 99, 30, 40, 50, 60]
 
 # Insert at beginning → O(n)
 arr.insert(0, 1)
-print(arr)              # [1, 10, 20, 99, 30, 40, 50, 60]
+print("Print append:", arr)              # [1, 10, 20, 99, 30, 40, 50, 60]
+
