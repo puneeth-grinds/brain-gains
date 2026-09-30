@@ -32,3 +32,9 @@ print(arr[1:3])  # [20, 30] → index 1 up to (not including) 3
 print(arr[:3])  # [10, 20, 30] → start to index 3
 print(arr[2:])  # [30, 40, 50] → index 2 to end
 print(arr[::-1])  # [50, 40, 30, 20, 10] → reversed
+
+# 6. Traversal
+arr = [10, 20, 30, 40, 50]
+
+for num in arr:
+    print("Pritning num value in traversal:", num)
