@@ -38,3 +38,7 @@ arr = [10, 20, 30, 40, 50]
 
 for num in arr:
     print("Pritning num value in traversal:", num)
+    
+for i, num in enumerate(arr):
+    print("Printing num and i value is traversal:", i, num)
+          
