@@ -163,3 +163,75 @@ When an interviewer says **"solve it in-place"** they mean:
 2. How does SPACE grow as input grows?
    → Count what extra memory you are creating
 ```
+
+## Types of Arrays
+
+### 1. One-Dimensional Array (1D)
+A single row of elements. One index to locate any element.
+
+```
+[10, 20, 30, 40, 50]
+  ↑                ↑
+index 0          index 4
+```
+
+---
+
+### 2. Two-Dimensional Array (2D) / Matrix
+An array of arrays — rows and columns, like a grid or spreadsheet.
+
+```
+        Col 0  Col 1  Col 2
+Row 0 → [  1,    2,    3  ]
+Row 1 → [  4,    5,    6  ]
+Row 2 → [  7,    8,    9  ]
+```
+
+- Two indices needed to locate any element — **row** and **column**
+- Element at Row 1, Col 2 → 6
+
+**How it sits in memory:**
+Even though it looks like a grid, memory is one long flat line.
+A 2D array gets flattened **row by row** into memory — this is called **row-major order.**
+
+```
+Matrix:          In Memory (flattened):
+[ 1, 2, 3 ]
+[ 4, 5, 6 ]  →  [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+[ 7, 8, 9 ]       ↑─ Row 0 ─↑─ Row 1 ─↑─ Row 2 ─↑
+```
+
+Access is still **O(1)** — just an extended formula:
+```
+Address = Base + (row × number of columns + column) × element size
+```
+
+**Where you'll see 2D arrays in problems:**
+- Grid traversal (islands, mazes)
+- Dynamic Programming (DP tables)
+- Graphs (adjacency matrix)
+- Game boards (chess, minesweeper)
+
+---
+
+### 3. Jagged Array
+A 2D array where each row can have a **different number of columns** — unlike a regular matrix where every row is the same length.
+
+```
+Regular Matrix (uniform):       Jagged Array (uneven):
+[ 1, 2, 3 ]                     [ 1, 2 ]
+[ 4, 5, 6 ]                     [ 3, 4, 5, 6 ]
+[ 7, 8, 9 ]                     [ 7 ]
+```
+
+> Just be aware this exists — you will occasionally see it in problems involving triangles or variable length rows.
+
+---
+
+### Quick Reference
+
+| Type | Indices Needed | Structure |
+|---|---|---|
+| 1D Array | 1 (index) | Single row |
+| 2D Array | 2 (row, column) | Grid — uniform row lengths |
+| Jagged Array | 2 (row, column) | Grid — uneven row lengths |
