@@ -41,4 +41,8 @@ for num in arr:
     
 for i, num in enumerate(arr):
     print("Printing num and i value is traversal:", i, num)
-          
+        
+i = 0
+while (i<len(arr)):
+    print("While loop:", i)
+    i = i+1
