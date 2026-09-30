@@ -62,3 +62,24 @@ print("Print append:", arr)              # [10, 20, 99, 30, 40, 50, 60]
 arr.insert(0, 1)
 print("Print append:", arr)              # [1, 10, 20, 99, 30, 40, 50, 60]
 
+
+# 8. Deletion 
+arr = [10, 20, 30, 40, 50]
+
+# Delete from end → O(1)
+arr.pop()
+print(arr)              # [10, 20, 30, 40]
+
+# Delete from middle by index → O(n)
+arr.pop(1)              # removes index 1
+print(arr)              # [10, 30, 40]
+
+# Delete by value → O(n)
+arr.remove(30)          # removes first occurrence of value 30
+print(arr)              # [10, 40]
+
+# Delete using del
+arr = [10, 20, 30, 40, 50]
+del arr[2]
+print(arr)              # [10, 20, 40, 50]\
+    
