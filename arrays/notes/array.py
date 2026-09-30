@@ -83,3 +83,12 @@ arr = [10, 20, 30, 40, 50]
 del arr[2]
 print(arr)              # [10, 20, 40, 50]\
     
+# 9. Updating
+
+arr = [10, 20, 30, 40, 50]
+
+arr[2] = 99
+print("Updated array:", arr)
+
+arr[0], arr[1] = arr[1], arr[0]
+print("swapped array:", arr)
