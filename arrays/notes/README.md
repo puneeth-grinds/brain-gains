@@ -235,3 +235,65 @@ Regular Matrix (uniform):       Jagged Array (uneven):
 | 1D Array | 1 (index) | Single row |
 | 2D Array | 2 (row, column) | Grid — uniform row lengths |
 | Jagged Array | 2 (row, column) | Grid — uneven row lengths |
+
+## Pros, Cons & When to Use
+
+### Where Arrays Shine 
+
+| Strength | Why |
+|---|---|
+| Fast Access | Know the index → get the element instantly in O(1) |
+| Cache Friendly | Elements are contiguous in memory — CPU loads chunks at once, making traversal fast |
+| Simple & Lightweight | No extra pointers or overhead — just elements side by side |
+| Great for Iteration | Most natural and efficient structure for visiting every element in order |
+
+---
+
+### Where Arrays Fall Apart 
+
+| Weakness | Why |
+|---|---|
+| Expensive middle insertions/deletions | Shifting elements is O(n) |
+| Fixed size (static arrays) | Must know size upfront — over/under allocation is painful |
+| Wasted memory | Dynamic arrays reserve extra space for future growth |
+| Slow search on unsorted arrays | Finding a value without sorting is always O(n) |
+
+---
+
+### When to Pick an Array
+
+```
+ Use an array when:
+   - You need fast access by index
+   - You know the size upfront or it grows from the end
+   - You are iterating through all elements
+   - Order of elements matters
+   - Memory efficiency matters
+
+ Avoid an array when:
+   - You are frequently inserting or deleting from the middle
+   - You need to search by value constantly → use HashMap
+   - You need FIFO order → use a Queue
+   - You need LIFO order → use a Stack
+   - Size is highly unpredictable and changes a lot
+```
+
+---
+
+### How Arrays Compare to What Comes Next
+
+| Situation | Better Choice | Why |
+|---|---|---|
+| Frequent middle insertions/deletions | Linked List | No shifting — just re-link pointers |
+| Search by value in O(1) | HashMap | Direct key-value lookup |
+| Last in first out (LIFO) | Stack | Built for this pattern |
+| First in first out (FIFO) | Queue | Built for this pattern |
+| Hierarchical data | Tree | Parent-child relationships |
+
+---
+
+### The Big Picture
+> Every data structure you learn from here is solving a **weakness of the previous one.**
+> Arrays are fast at access but slow at insertion → Linked Lists fix that.
+> Linked Lists are slow at access → HashMaps fix that.
+> And so on.
