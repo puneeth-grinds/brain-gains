@@ -92,3 +92,20 @@ print("Updated array:", arr)
 
 arr[0], arr[1] = arr[1], arr[0]
 print("swapped array:", arr)
+
+# 10. Useful - Builtins
+arr = [10, 20, 30, 40, 50]
+
+print(max(arr))
+print(min(arr))
+print(len(arr))
+print(sum(arr))
+
+print(sorted(arr))
+arr.sort(reverse=True)
+
+print(30 in arr)
+
+# Count occurrences
+arr = [10, 20, 10, 30, 10]
+print(arr.count(10))    # 3
