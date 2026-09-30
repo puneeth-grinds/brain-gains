@@ -1,111 +1,147 @@
-# 1. Creating an empty array
+# ============================================================
+# ARRAYS - Operations in Python
+# ============================================================
+
+
+# ------------------------------------------------------------
+# 1. CREATING ARRAYS
+# ------------------------------------------------------------
 
 arr = []
-print("Printing an empty array:", arr)
-
-# 2. Array with elements
+print("Empty array:", arr)
 
 arr = [10, 20, 30, 40, 50]
-print("Printing an array with elements:", arr)
+print("Array with elements:", arr)
 
-# 3. From a range
+arr = [0] * 5
+print("Same value repeated:", arr)
 
 arr = list(range(5))
-print("Printing an range of arrays", arr)
+print("From range:", arr)
 
-# 4. 2D array
 matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-print("Printing 2D array:", matrix[1][2])
+print("2D array element at row 1, col 2:", matrix[1][2])
 
 
-# 5. Accessing elements
+# ------------------------------------------------------------
+# 2. ACCESSING ELEMENTS
+# ------------------------------------------------------------
+
 arr = [10, 20, 30, 40, 50]
 
-# By index
-print(arr[0])  # 10 → first element
-print(arr[4])  # 50 → last element
-print(arr[-1])  # 50 → last element (negative index)
-print(arr[-2])  # 40 → second from last
+print("First element:", arr[0])
+print("Last element:", arr[-1])
+print("Second from last:", arr[-2])
+print("Slice [1:3]:", arr[1:3])
+print("Slice [:3]:", arr[:3])
+print("Slice [2:]:", arr[2:])
+print("Reversed:", arr[::-1])
 
-# Slicing
-print(arr[1:3])  # [20, 30] → index 1 up to (not including) 3
-print(arr[:3])  # [10, 20, 30] → start to index 3
-print(arr[2:])  # [30, 40, 50] → index 2 to end
-print(arr[::-1])  # [50, 40, 30, 20, 10] → reversed
 
-# 6. Traversal
+# ------------------------------------------------------------
+# 3. TRAVERSAL
+# ------------------------------------------------------------
+
 arr = [10, 20, 30, 40, 50]
 
 for num in arr:
-    print("Pritning num value in traversal:", num)
-    
+    print("Basic loop:", num)
+
 for i, num in enumerate(arr):
-    print("Printing num and i value is traversal:", i, num)
-        
+    print("With index:", i, num)
+
 i = 0
-while (i<len(arr)):
-    print("While loop:", i)
-    i = i+1
+while i < len(arr):
+    print("While loop:", arr[i])
+    i += 1
 
-# 7. Insertion
+left, right = 0, len(arr) - 1
+while left < right:
+    print("Two pointer — left:", arr[left], "right:", arr[right])
+    left += 1
+    right -= 1
+
+
+# ------------------------------------------------------------
+# 4. INSERTION
+# ------------------------------------------------------------
+
 arr = [10, 20, 30, 40, 50]
 
-# Insert at end → O(1)
 arr.append(60)
-print("Print append:", arr)              # [10, 20, 30, 40, 50, 60]
+print("After append:", arr)
 
-# Insert at middle → O(n)
-arr.insert(2, 99)       # index 2, value 99
-print("Print append:", arr)              # [10, 20, 99, 30, 40, 50, 60]
+arr.insert(2, 99)
+print("After insert at middle:", arr)
 
-# Insert at beginning → O(n)
 arr.insert(0, 1)
-print("Print append:", arr)              # [1, 10, 20, 99, 30, 40, 50, 60]
+print("After insert at beginning:", arr)
 
 
-# 8. Deletion 
+# ------------------------------------------------------------
+# 5. DELETION
+# ------------------------------------------------------------
+
 arr = [10, 20, 30, 40, 50]
 
-# Delete from end → O(1)
 arr.pop()
-print(arr)              # [10, 20, 30, 40]
+print("After pop from end:", arr)
 
-# Delete from middle by index → O(n)
-arr.pop(1)              # removes index 1
-print(arr)              # [10, 30, 40]
+arr.pop(1)
+print("After pop at index 1:", arr)
 
-# Delete by value → O(n)
-arr.remove(30)          # removes first occurrence of value 30
-print(arr)              # [10, 40]
+arr.remove(30)
+print("After remove value 30:", arr)
 
-# Delete using del
 arr = [10, 20, 30, 40, 50]
 del arr[2]
-print(arr)              # [10, 20, 40, 50]\
-    
-# 9. Updating
+print("After del at index 2:", arr)
+
+
+# ------------------------------------------------------------
+# 6. UPDATING
+# ------------------------------------------------------------
 
 arr = [10, 20, 30, 40, 50]
 
 arr[2] = 99
-print("Updated array:", arr)
+print("After updating index 2:", arr)
 
-arr[0], arr[1] = arr[1], arr[0]
-print("swapped array:", arr)
+arr[0], arr[4] = arr[4], arr[0]
+print("After swapping index 0 and 4:", arr)
 
-# 10. Useful - Builtins
-arr = [10, 20, 30, 40, 50]
 
-print(max(arr))
-print(min(arr))
-print(len(arr))
-print(sum(arr))
+# ------------------------------------------------------------
+# 7. USEFUL BUILT-INS
+# ------------------------------------------------------------
 
-print(sorted(arr))
+arr = [40, 10, 50, 20, 30]
+
+print("Length:", len(arr))
+print("Min:", min(arr))
+print("Max:", max(arr))
+print("Sum:", sum(arr))
+print("sorted():", sorted(arr))
+arr.sort()
+print("After .sort():", arr)
 arr.sort(reverse=True)
+print("After .sort(reverse=True):", arr)
+print("30 in arr:", 30 in arr)
 
-print(30 in arr)
-
-# Count occurrences
 arr = [10, 20, 10, 30, 10]
-print(arr.count(10))    # 3
+print("Count of 10:", arr.count(10))
+
+
+# ------------------------------------------------------------
+# 8. THE COPY TRAP
+# ------------------------------------------------------------
+
+a = [1, 2, 3]
+b = a
+b[0] = 99
+print("Wrong copy — a also changed:", a)
+
+a = [1, 2, 3]
+b = a.copy()
+b[0] = 99
+print("Right copy — a is safe:", a)
