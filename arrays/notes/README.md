@@ -104,3 +104,62 @@ Index 4 → 1000 + (4 × 1) = 1004
 > **End operations are cheap. Middle and start operations are expensive.**
 > Because arrays are contiguous in memory — touching the middle or start means shifting neighbours.
 > The end has no neighbours after it, so nothing shifts.
+
+## Complexity
+
+### What is Complexity?
+> "As the input grows bigger, how does my operation's cost grow?"
+
+It is never about exact time in seconds — it is about the **rate of growth.** That is what Big O measures.
+
+---
+
+### Time Complexity
+
+**The One Rule to Internalize**
+> The more elements you have to touch — the more expensive the operation.
+
+| Complexity | Name | Meaning |
+|---|---|---|
+| O(1) | Constant | Cost stays the same no matter how big the input gets |
+| O(n) | Linear | Cost grows as the input grows |
+
+| Operation | Complexity | Why |
+|---|---|---|
+| Access by index | O(1) | One address calculation — always one step regardless of size |
+| Traversal | O(n) | Every element is visited once |
+| Insert at end | O(1) | Nothing shifts — doesn't matter if 2 or 2000 elements |
+| Insert at middle/start | O(n) | Every element after insertion point must shift |
+| Delete from end | O(1) | Nothing shifts — doesn't matter if 2 or 2000 elements |
+| Delete from middle/start | O(n) | Every element after deletion point must shift |
+
+---
+
+### Space Complexity
+> "How much **extra** memory does my operation need?"
+
+The array itself does not count — only the additional memory created on top of the input.
+
+| Complexity | Meaning | Example |
+|---|---|---|
+| O(1) | Extra memory stays flat regardless of input size | Using a single variable to track an index |
+| O(n) | Extra memory grows with input size | Creating a full copy of the array |
+
+---
+
+### The In-Place Constraint
+When an interviewer says **"solve it in-place"** they mean:
+> Do not create a new array or copy. Work directly on the existing array.
+> This means your solution must use **O(1) space.**
+
+---
+
+### The Two Questions to Ask For Every Solution
+
+```
+1. How does TIME grow as input grows?
+   → Count how many elements you are touching
+
+2. How does SPACE grow as input grows?
+   → Count what extra memory you are creating
+```
